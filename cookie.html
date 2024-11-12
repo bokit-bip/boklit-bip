@@ -1,0 +1,87 @@
+<html><head>
+	<meta name="viewport" content="height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<title>Burrito Bison</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		canvas {
+			outline: none
+		}
+		html, body {
+			margin: 0;
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+			background-color: white;
+		}
+	</style>
+	<script src="https://823750165-741930852853107953.preview.editmysite.com/uploads/b/139890129-915901559959649348/files/loader.js"></script>
+<style type="text/css">#button {
+  display:none;
+}
+.imgb_vis {
+  animation: imgb-animation 7s linear;
+}
+@keyframes imgb-animation {
+  10% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(100px);
+  }
+  90% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}</style><script type="text/javascript" async="" src="blob:https://linkd1.github.io/8f7d15d2-0edf-47a8-88cb-3a20b25c91f7"></script></head>
+
+<body>
+	<script>
+		const urlParams = new URLSearchParams(window.location.search);
+		var swfName = urlParams.get('swf');
+		if (!swfName) {
+			swfName = '';
+		}
+		const config = {
+			width: 550,
+			height: 400,
+			splash: 'awayfl/todo.jpg',
+			progress: { // optional
+				back: 'cover url(awayfl/progressBg.jpg)',
+				line: 'awayfl/progressLine.jpg', // or image, it will passed to progressLine background,
+				rect: [0, 0.9, 1, 0.1] // x, y, width, height of preogress line relative contianer 
+			},
+			baseUrl: 'https://823750165-741930852853107953.preview.editmysite.com/uploads/b/139890129-915901559959649348/files',
+			runtime: ['https://823750165-741930852853107953.preview.editmysite.com/uploads/b/139890129-915901559959649348/files/runtime.js'],
+			binary: [{
+				path: 'https://823750165-741930852853107953.preview.editmysite.com/uploads/b/139890129-915901559959649348/files/assets/burrito-bison.xml' + swfName,
+				resourceType: 'GAME',
+				name: 'Game', // not used atm
+				meta: {} // not used atm
+			}],
+		}
+
+		window.addEventListener("load", () => {
+			AWAYFL.LegacyLoader.init(config);
+			AWAYFL.LegacyLoader.runGame((fill) => {
+				window.dispatchEvent(new CustomEvent('awayfl-player-progress', {detail: fill}));
+			}, (config, hideLoader) => {
+				const player = new AWAYFL.Player(document, config);
+				window.dispatchEvent(new CustomEvent('awayfl-player-init', {detail: player}));
+				player
+					.loadAndPlay()
+					.then((_, hide) => {
+						window.dispatchEvent(new CustomEvent('awayfl-player-load'));
+						hide && hide();
+					});				
+			})
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/gh/st39/sdk@main/api.js"></script>
+
+
+<div id="button" class="imgb imgb_vis" style="position: fixed; top: 10%; left: -100px; z-index: 10; display: none;"><a target="_blank" href="https://classroomus.b-cdn.net/" title="Classroomus Unblocked Games"><img src="https://lh4.googleusercontent.com/lUEWrXMVEr4AdjKISyJahDRJ61bwfvHdpeYm86Djn5U8oCm9dI60NGXSBqad9HUvzTXgqlkosA_hWV-VuXPjzrkGvh3_kNSgYk8ySWzXnDpbBCBiooyBbU8oBy3YBZMDkW8RcRVmDuC0raoeqZBm8kBlqs6c5mdfkJeN2aE68lXS_lcOZ5_F7lIuM6qLVg" width="100" height="30" style="cursor:pointer;" alt="More Unblocked Games 6x"></a></div><canvas id="stage0" width="1324" height="882" style="position: absolute; left: 0px; top: 26.6667px; visibility: visible; width: 1324px; height: 882.667px; cursor: initial;"></canvas></body></html>
